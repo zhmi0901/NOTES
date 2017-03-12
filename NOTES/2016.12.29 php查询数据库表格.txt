@@ -1,0 +1,23 @@
+//判断数据库中是否存在指定表格
+function check_table_is_exist($sql,$find_table)//$sql:show datatables(查找所有的数据库);$sql:show tables(查找所有的表)
+{
+	$row=mysql_query($sql);
+	$database=array();
+	$finddatabase=$find_table;
+	while ($result=mysql_fetch_array($row,MYSQL_ASSOC))
+	{
+		$database[]=$result['Tables_in_Remote_terminal_myd'];//数据表列表，$result[datatables']:数据库列表
+	}
+	unset($result,$row);
+	mysql_close();
+	 
+	/*开始判断表是否存在*/
+	if(in_array($find_table,$database))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

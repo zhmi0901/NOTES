@@ -1,0 +1,6 @@
+$('#autoSuggestionsList').on('click', '#id-li', function() {
+	
+	alert($(this).attr("data-value"));//获取ID为id-li属性为data-value的值
+        alert($(this).text());////获取ID为id-li的显示的文本内容
+		
+	});

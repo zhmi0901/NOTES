@@ -1,0 +1,29 @@
+GET:
+
+$url= "http://112.74.105.19/API/GetInfoAPI.php?action=userinfo&user_id=18691233933&password=18691233933";
+$result5 = file_get_contents($url);
+print_r($result5);
+
+POST:
+
+$url= "http://112.74.105.19/API/PostInfoAPI.php";
+
+$data = array(
+		'action'=>'userinfo',
+		'user_id'=>'18691233933',
+		'password'=>'18691233933'
+);
+$data = http_build_query($data);
+$opts = array (
+		'http' => array(
+				'method' => 'POST',
+				'header' => array(
+						'Content-Type:application/x-www-form-urlencoded;charset=utf-8',
+				),
+				'content' =>  $data
+		),
+);
+$context = stream_context_create($opts);
+$html = file_get_contents($url, false, $context);
+print_r($html);
+

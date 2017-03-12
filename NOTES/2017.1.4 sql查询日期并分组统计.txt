@@ -1,0 +1,6 @@
+select DATE_FORMAT(time,'%Y%m') days,COUNT(*)
+count from 18691233933_data_frm
+where fall_detection  like '%fall no press '
+GROUP BY days;
+
+

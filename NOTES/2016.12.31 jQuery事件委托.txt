@@ -1,0 +1,6 @@
+$('#autoSuggestionsList').on('click', '#id-li', function() {
+		alert("name");
+	    /// here goes the code
+	});
+每一个list（id-li）都是ajax动态加载出来的，直接写click事件是无法起作用的，以为该事件绑定的时候这个dom并不存在。
+这时候需要使用事件委托。通过事件委托，将子元素的事件绑定到父元素上，子元素被点击后，事件会冒泡到父元素，又父元素捕捉然后触发事件。
